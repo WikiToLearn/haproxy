@@ -17,4 +17,4 @@ else
  cat /etc/ssl/certs/haproxy.crt /etc/ssl/private/haproxy.key > /haproxy.pem
 fi
 
-haproxy -f /usr/local/etc/haproxy/haproxy.cfg
+exec haproxy -f /usr/local/etc/haproxy/haproxy.cfg
