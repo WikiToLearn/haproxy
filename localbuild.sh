@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t wikitolearn/haproxy:0.6.4 .
+docker build -t wikitolearn/haproxy:0.6.5 .
