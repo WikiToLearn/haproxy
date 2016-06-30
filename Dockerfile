@@ -1,8 +1,9 @@
 FROM haproxy:1.6
+ADD ./docker-apt-get-install.sh /docker-apt-get-install.sh
 MAINTAINER wikitolearn sysadmin@wikitolearn.org
 ADD ./sources.list /etc/apt/sources.list
-RUN apt-get update && apt-get install openssl --assume-yes && rm -f /var/cache/apt/archives/*deb && find /var/lib/apt/lists/ -type f -delete
-RUN apt-get update && apt-get install wget --assume-yes && rm -f /var/cache/apt/archives/*deb && find /var/lib/apt/lists/ -type f -delete
+RUN /docker-apt-get-install.sh openssl
+RUN /docker-apt-get-install.sh wget
 ADD ./x-forwarded-for-acl /
 ADD ./haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
 ADD ./kickstart.sh /
