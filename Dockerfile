@@ -1,7 +1,7 @@
 FROM haproxy:1.6
 ADD ./docker-apt-get-install.sh /docker-apt-get-install.sh
 MAINTAINER wikitolearn sysadmin@wikitolearn.org
-ADD ./sources.list /etc/apt/sources.list
+
 RUN /docker-apt-get-install.sh openssl
 RUN /docker-apt-get-install.sh wget
 ADD ./x-forwarded-for-acl /
